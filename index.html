@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+
+    <title>Input Order Pengiriman Internasional</title>
+    <!-- Memanggil library Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Input Order Pengiriman Internasional</h1>
+        <div class="row">
+            <form method="get" action="output.html" class="col-4 needs-validation">
+                <div class="row g-3">
+                <div class="col-12">
+                <label for="namaPengirim" class="form-label">Nama Pengirim</label>
+                <input type="text" class="form-control" id="namaPengirim" name="namaPengirim" required>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="teleponPengirim" class="form-label">Nomor Kontak Pengirim</label>
+                <input type="tel" class="form-control" id="teleponPengirim" name="teleponPengirim" pattern="\d{10,15}" required>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="negaraPengirim" class="form-label">Negara Asal Pengirim</label>
+                <select class="form-select" id="negaraPengirim" name="negaraPengirim" required>
+                    <option value="">Pilih Negara</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Singapura">Singapura</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Vietnam">Vietnam</option>
+                </select>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <!-- Field data penerima -->
+            <div class="mb-3">
+                <label for="namaPenerima" class="form-label">Nama Penerima</label>
+                <input type="text" class="form-control" id="namaPenerima" name="namaPenerima" required>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="teleponPenerima" class="form-label">Nomor Kontak Penerima</label>
+                <input type="tel" class="form-control" id="teleponPenerima" name="teleponPenerima" pattern="\d{10,15}" required>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="negaraPenerima" class="form-label">Negara Tujuan Penerima</label>
+                <select class="form-select" id="negaraPenerima" name="negaraPenerima" required>
+                    <option value="">Pilih Negara</option>
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="Malaysia">Malaysia</option>
+                    <option value="Singapura">Singapura</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Vietnam">Vietnam</option>
+                </select>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <!-- Field data barang -->
+            <div class="mb-3">
+                <label for="namaBarang" class="form-label">Nama Barang</label>
+                <input type="text" class="form-control" id="namaBarang" name="namaBarang" required>
+                
+            </div>
+            <div class="mb-3">
+                <label for="beratBarang" class="form-label">Berat Barang (kg)</label>
+                <input type="number" class="form-control" id="beratBarang" name="beratBarang" min="0" step="1" required>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="prioritasPengiriman" class="form-label">Prioritas Pengiriman</label>
+                <select class="form-select" id="prioritasPengiriman" name="prioritasPengiriman">
+                    <option value="reguler" selected>Reguler</option>
+                    <option value="express">Express</option>
+                </select>
+                <div class="invalid-feedback">
+                    Harus diisi
+                    </div>
+            </div>
+            <!-- Tombol Submit dan Reset -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </form>
+    </div>
+    <!-- Memanggil library Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Validasi form -->
+    <script>
+         const form = document.querySelector('form');
+        form.addEventListener('submit', function (event) {
+            const beratBarang = document.getElementById('beratBarang').value;
+            if (beratBarang <= 0 || beratBarang % 1 !== 0) {
+                alert('Berat barang harus diisi dengan angka positif bulat.');
+                event.preventDefault();
+            }
+        }
+        )
+        ;
+        </script>
+    </body>
+</html>
